@@ -26,17 +26,16 @@ gridLayout(rowColumns);
 const resetButton = document.querySelector('#btn');
 
 resetButton.addEventListener('click',()=>{
-    rowColumns = prompt('Enter your grid dimensions below. For example, if you want your grid to be 20x20, enter "20"');
+    rowColumns = prompt('Enter your grid dimensions below. For example, if you want your grid to be 20x20, enter "20". Do not use a grid more detailed than 100x100.');
+    while (isNaN(rowColumns) || rowColumns>100){
+     rowColumns = prompt('Enter your grid dimensions below. For example, if you want your grid to be 20x20, enter "20". Do not use a grid more detailed than 100x100.');
+    }
     const divs = document.getElementsByTagName('div');
-    if(rowColumns <101){
-     for(div of divs){
+    for(div of divs){
         div.style.backgroundColor = 'white';
      }
-     gridLayout(rowColumns);
-    }
-    else{ //Need to do while loop?
-        rowColumns = prompt('Enter your grid dimensions below. For example, if you want your grid to be 20x20, enter "20"');
-    }
+    gridLayout(rowColumns);
+    
 });
 //12.14.21 app is now functioning!!! Now can add styling and potentially random colors 
 //Need to also add so that input cannot be over 100
