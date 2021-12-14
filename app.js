@@ -3,9 +3,15 @@ container.style.display = 'grid';
 container.style.height = '100%';
 container.style.width = '100%';
 let rowColumns = 16;
-//let square = document.createElement('div');//need to have this in for loop... or else only one works
-
-//const square = document.createElement('div'); 12.7.21 This made 1 div 
+let bColor = 'rgb(0,0,0)';
+function random_bg_color() {
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    bColor = "rgb(" + x + "," + y + "," + z + ")";
+    console.log(bColor);
+}
+random_bg_color();
 
 
 function gridLayout(rowColumns){
@@ -17,7 +23,8 @@ function gridLayout(rowColumns){
         container.appendChild(square);
         square.addEventListener('mouseenter', ()=>{
             console.log('mouse has entered');
-            square.style.backgroundColor = 'black';    
+            random_bg_color();
+            square.style.backgroundColor = bColor; //seems to console.log... but color is not changing
         });
     }
 }
@@ -38,4 +45,3 @@ resetButton.addEventListener('click',()=>{
     
 });
 //12.14.21 app is now functioning!!! Now can add styling and potentially random colors 
-//Need to also add so that input cannot be over 100
