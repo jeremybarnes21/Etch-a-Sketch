@@ -1,0 +1,48 @@
+body{
+    background-color: #828e84; /*make desk background*/
+    height: 100%;
+    margin: 0px;
+}
+h1 {
+    text-align: center;
+    margin: 4px;
+    color: seashell;
+}
+h3 {
+    text-align: center;
+    margin: 4px;
+    color: seashell;
+}
+#container{
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    box-sizing: border-box;
+    border-style:solid;
+    box-shadow: 2px,;
+    border-width: 2.5em;
+    border-color: red;
+    background-color: seashell;
+}
+#btn-container{
+    width: 95%;
+}
+#btn {
+    margin-right: 2.5%;
+    float: right;
+    margin-bottom: 8px;
+    background-color: seashell;
+    border-style: solid;
+    border-color: red;
+    color: red;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  #btn:hover {
+    background-color: red;
+    color: white;
+  }

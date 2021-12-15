@@ -1,7 +1,7 @@
 const container = document.querySelector('#container');
 container.style.display = 'grid';
-container.style.height = '100%';
-container.style.width = '100%';
+container.style.height = '75%';
+container.style.width = '95%';
 let rowColumns = 16;
 let bColor = 'rgb(0,0,0)';
 function random_bg_color() {
@@ -24,7 +24,7 @@ function gridLayout(rowColumns){
         square.addEventListener('mouseenter', ()=>{
             console.log('mouse has entered');
             random_bg_color();
-            square.style.backgroundColor = bColor; //seems to console.log... but color is not changing
+            square.style.backgroundColor = bColor; 
         });
     }
 }
