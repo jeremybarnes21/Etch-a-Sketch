@@ -2,6 +2,7 @@ body{
     background-color: #828e84; /*make desk background*/
     height: 100%;
     margin: 0px;
+    font-style: "Times New Roman";
 }
 h1 {
     text-align: center;
@@ -23,11 +24,21 @@ h3 {
     border-color: red;
     background-color: seashell;
 }
-#btn-container{
+#btnContainer{
     width: 95%;
-}
-#btn {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     margin-right: 2.5%;
+    margin-left: 2.5%;
+}
+#textbutton{
+    color: seashell;
+    font-size: 16px;
+    font-weight: bold;
+    
+}
+.btn {
+    margin-right: 5%;
     float: right;
     margin-bottom: 8px;
     background-color: seashell;
@@ -42,7 +53,31 @@ h3 {
     transition-duration: 0.4s;
     cursor: pointer;
   }
-  #btn:hover {
+  .btn:hover {
     background-color: red;
+    color: white;
+  }
+  #black{
+    border-color: black;
+    color: black
+  }
+  #black:hover {
+    background-color: black;
+    color: white
+  }
+  #blue{
+    border-color: blue;
+    color: blue;
+  }
+  #blue:hover {
+    background-color: blue;
+    color: white;
+  }
+  #green{
+    border-color: green;
+    color: green;
+  }
+  #green:hover {
+    background-color: green;
     color: white;
   }
