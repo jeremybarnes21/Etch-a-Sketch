@@ -4,25 +4,42 @@ container.style.height = '75%';
 container.style.width = '95%';
 let rowColumns = 16;
 let bColor = 'rgb(0,0,0)';
-function random_bg_color() {
+/*function randomColor() {
     let x = Math.floor(Math.random() * 256);
     let y = Math.floor(Math.random() * 256);
     let z = Math.floor(Math.random() * 256);
     bColor = "rgb(" + x + "," + y + "," + z + ")";
+    square.style.backgroundColor = bColor;
     //console.log(bColor);
-}
-random_bg_color();
+}*/
+//random_bg_color();
 
 
 function gridLayout(rowColumns){
     container.style.gridTemplateColumns = `repeat(${rowColumns}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${rowColumns}, 1fr)`;
+    function randomColor() {
+        let x = Math.floor(Math.random() * 256);
+        let y = Math.floor(Math.random() * 256);
+        let z = Math.floor(Math.random() * 256);
+        bColor = "rgb(" + x + "," + y + "," + z + ")";
+        //square.style.backgroundColor = bColor;
+        //console.log(bColor);
+    }
     for(i=0; i<rowColumns*rowColumns;i++){
         const square = document.createElement('div');
         square.classList.add('grid-item');
         container.appendChild(square);
-        square.addEventListener('mouseenter', ()=>{ //need to have this function take a variable that changes with each thing... need to look into syntax more.
-           // console.log('rainbow');
+    }
+    let gridItems = document.getElementsByClassName('grid-item');
+    for (let j= gridItems.length -1; j>=0; j--){
+        gridItems[j].addEventListener('mouseenter',()=>{
+            randomColor();
+            gridItems[j].style.backgroundColor = bColor;
+        });
+    }
+
+        /*    // console.log('rainbow');
             random_bg_color();
            // console.log(bColor);
             square.style.backgroundColor = bColor; 
@@ -52,7 +69,7 @@ function gridLayout(rowColumns){
                 random_bg_color();
                 square.style.backgroundColor = bColor; 
             });*/ //This needs to be added first I think...
-        }
+        
         
     }
 
@@ -73,6 +90,16 @@ resetButton.addEventListener('click',()=>{
     btnContainer.style.backgroundColor = '#828e84';
     gridLayout(rowColumns);
     
+});
+
+const blackBtn = document.querySelector('#black');
+blackBtn.addEventListener('click',()=>{
+      //let sketchDivs = document.querySelectorAll('.grid-item');
+      let arrDivs = Array.from(sketchDivs);
+      console.log(sketchDivs.length);//doesn't give right length... adds previous 256 + 2500
+      for(div of arrDivs){
+            square.removeEventListener //not sure if will work 1. square is not within scope... 2. need external function for addEventListener
+      }
 });
 
 
