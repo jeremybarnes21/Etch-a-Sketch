@@ -4,35 +4,37 @@ container.style.height = '75%';
 container.style.width = '95%';
 let rowColumns = 16;
 let bColor = 'rgb(0,0,0)';
-/*function randomColor() {
-    let x = Math.floor(Math.random() * 256);
-    let y = Math.floor(Math.random() * 256);
-    let z = Math.floor(Math.random() * 256);
-    bColor = "rgb(" + x + "," + y + "," + z + ")";
-    square.style.backgroundColor = bColor;
-    //console.log(bColor);
-}*/
-//random_bg_color();
+let rColor = 'rbg(100,100,100)';
+let rainbowClicked = false;
 function randomColor() {
     let x = Math.floor(Math.random() * 256);
     let y = Math.floor(Math.random() * 256);
     let z = Math.floor(Math.random() * 256);
-    bColor = "rgb(" + x + "," + y + "," + z + ")";
+    rColor = "rgb(" + x + "," + y + "," + z + ")";
 }
 
 const blackBtn = document.querySelector('#black');
 blackBtn.addEventListener('click',()=>{
       bColor = 'rgb(0,0,0)';
+      rainbowClicked = false;
 });
 
 const blueBtn = document.querySelector('#blue');
 blueBtn.addEventListener('click',()=>{
     bColor = 'rgb(0,0,255)';
+    rainbowClicked = false;
 });
 
 const greenBtn = document.querySelector('#green');
 greenBtn.addEventListener('click',()=>{
     bColor = 'rgb(0,128,0)';
+    rainbowClicked = false;
+});
+
+const rainbowBtn = document.querySelector('#rainbow');
+rainbowBtn.addEventListener('click',()=>{
+    rainbowClicked = true;
+    bColor = rColor;
 });
 
 function gridLayout(rowColumns){
@@ -46,7 +48,11 @@ function gridLayout(rowColumns){
     let gridItems = document.getElementsByClassName('grid-item');
     for (let j= gridItems.length -1; j>=0; j--){
         gridItems[j].addEventListener('mouseenter',()=>{
-            //randomColor();
+            randomColor();
+            console.log(rColor);
+            if(rainbowClicked == true){
+            bColor=rColor;
+            }
             gridItems[j].style.backgroundColor = bColor;
         });
     }
