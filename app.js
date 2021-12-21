@@ -13,19 +13,31 @@ let bColor = 'rgb(0,0,0)';
     //console.log(bColor);
 }*/
 //random_bg_color();
+function randomColor() {
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    bColor = "rgb(" + x + "," + y + "," + z + ")";
+}
 
+const blackBtn = document.querySelector('#black');
+blackBtn.addEventListener('click',()=>{
+      bColor = 'rgb(0,0,0)';
+});
+
+const blueBtn = document.querySelector('#blue');
+blueBtn.addEventListener('click',()=>{
+    bColor = 'rgb(0,0,255)';
+});
+
+const greenBtn = document.querySelector('#green');
+greenBtn.addEventListener('click',()=>{
+    bColor = 'rgb(0,128,0)';
+});
 
 function gridLayout(rowColumns){
     container.style.gridTemplateColumns = `repeat(${rowColumns}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${rowColumns}, 1fr)`;
-    function randomColor() {
-        let x = Math.floor(Math.random() * 256);
-        let y = Math.floor(Math.random() * 256);
-        let z = Math.floor(Math.random() * 256);
-        bColor = "rgb(" + x + "," + y + "," + z + ")";
-        //square.style.backgroundColor = bColor;
-        //console.log(bColor);
-    }
     for(i=0; i<rowColumns*rowColumns;i++){
         const square = document.createElement('div');
         square.classList.add('grid-item');
@@ -34,7 +46,7 @@ function gridLayout(rowColumns){
     let gridItems = document.getElementsByClassName('grid-item');
     for (let j= gridItems.length -1; j>=0; j--){
         gridItems[j].addEventListener('mouseenter',()=>{
-            randomColor();
+            //randomColor();
             gridItems[j].style.backgroundColor = bColor;
         });
     }
@@ -92,14 +104,6 @@ resetButton.addEventListener('click',()=>{
     
 });
 
-const blackBtn = document.querySelector('#black');
-blackBtn.addEventListener('click',()=>{
-      //let sketchDivs = document.querySelectorAll('.grid-item');
-      let arrDivs = Array.from(sketchDivs);
-      console.log(sketchDivs.length);//doesn't give right length... adds previous 256 + 2500
-      for(div of arrDivs){
-            square.removeEventListener //not sure if will work 1. square is not within scope... 2. need external function for addEventListener
-      }
-});
+
 
 
